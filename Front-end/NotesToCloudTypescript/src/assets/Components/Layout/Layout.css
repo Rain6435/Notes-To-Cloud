@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700");
+
+/*Desktop View*/
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 40px;
+  height: 80px;
+  width: auto;
+}
+.logo-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo {
+  scale: 0.5;
+  width: 150px;
+  height: auto;
+}
+.nav-options {
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+  justify-content: space-evenly;
+  list-style-type: none;
+  flex-grow: 2;
+}
+.mobile-option {
+  display: none;
+}
+.signin-up {
+  display: flex;
+  padding: 0px 5px;
+  list-style-type: none;
+}
+.sign-in {
+  padding-right: 50px;
+  align-self: center;
+}
+.sign-in :hover {
+  color: white;
+}
+.signup-btn {
+  padding: 10px 10px;
+  height: 2.4rem;
+  border-radius: 3px;
+  background: rgb(222, 9, 241);
+  color: white;
+  cursor: pointer;
+  align-items: center;
+}
+.mobile-menu {
+  margin: 1em;
+}
+.mobile-menu-container{
+  display: none;
+}
+@media only screen and (max-width: 800px) {
+  /*Mobile View */
+  .header {
+    padding: 0px 10px;
+  }
+  .logo {
+    scale: 0.5;
+    width: 150px;
+    height: auto;
+  }
+  .nav-options {
+    display: flex;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 80px;
+    left: -100%;
+    opacity: 0;
+    transition: all 0.5s ease;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    list-style-type: none;
+    grid-gap: 0px;
+  }
+  .nav-options.active {
+    backdrop-filter: blur(10px);
+    border-radius: 50% 22% 40% 80%;  
+    background: radial-gradient(circle at 50% 50%,rgb(24, 55, 77), rgba(76, 0, 255, 0));
+    opacity: 1;
+    left: 0;
+    transition: all 0.5s ease;
+    z-index: 1;
+    align-content: center;
+    padding-left: 0px;
+  }
+  .menu-icon {
+    width: 45px;
+    height: 45px;
+  }
+  .option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .mobile-menu-container {
+    display: block;
+    position: fixed;
+    margin-left: 2em;
+    right: 0;
+  }
+}
+.nav-options li a {
+  --fill-color: #198CE6;
+  position: relative;
+  display: block;
+  padding: 4px 0;
+  font: 700 2rem Raleway, sans-serif;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-text-stroke: 2px var(--fill-color);
+  background: linear-gradient(var(--fill-color) 0 100%) left / 0 no-repeat;
+  color: transparent;
+  background-clip: text;
+  transition: 0.5s linear;
+  margin: 0.5em;
+}
+
+#bar {
+  width: 35px;
+  height: 5px;
+  background-color: white;
+  margin: 6px 0;
+}

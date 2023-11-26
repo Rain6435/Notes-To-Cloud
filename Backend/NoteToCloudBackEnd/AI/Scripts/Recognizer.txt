@@ -1,0 +1,936 @@
+Model: "model_5"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ input_2 (InputLayer)           [(None, 31, 200, 1)  0           []                               
+                                ]                                                                 
+                                                                                                  
+ permute (Permute)              (None, 200, 31, 1)   0           ['input_2[0][0]']                
+                                                                                                  
+ lambda (Lambda)                (None, 200, 31, 1)   0           ['permute[0][0]']                
+                                                                                                  
+ conv_1 (Conv2D)                (None, 200, 31, 64)  640         ['lambda[0][0]']                 
+                                                                                                  
+ conv_2 (Conv2D)                (None, 200, 31, 128  73856       ['conv_1[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ conv_3 (Conv2D)                (None, 200, 31, 256  295168      ['conv_2[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ bn_3 (BatchNormalization)      (None, 200, 31, 256  1024        ['conv_3[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ maxpool_3 (MaxPooling2D)       (None, 100, 15, 256  0           ['bn_3[0][0]']                   
+                                )                                                                 
+                                                                                                  
+ conv_4 (Conv2D)                (None, 100, 15, 256  590080      ['maxpool_3[0][0]']              
+                                )                                                                 
+                                                                                                  
+ conv_5 (Conv2D)                (None, 100, 15, 512  1180160     ['conv_4[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ bn_5 (BatchNormalization)      (None, 100, 15, 512  2048        ['conv_5[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ maxpool_5 (MaxPooling2D)       (None, 50, 7, 512)   0           ['bn_5[0][0]']                   
+                                                                                                  
+ conv_6 (Conv2D)                (None, 50, 7, 512)   2359808     ['maxpool_5[0][0]']              
+                                                                                                  
+ conv_7 (Conv2D)                (None, 50, 7, 512)   2359808     ['conv_6[0][0]']                 
+                                                                                                  
+ bn_7 (BatchNormalization)      (None, 50, 7, 512)   2048        ['conv_7[0][0]']                 
+                                                                                                  
+ model_2 (Functional)           (None, 6)            934902      ['bn_7[0][0]']                   
+                                                                                                  
+ lambda_1 (Lambda)              (None, 50, 7, 512)   0           ['bn_7[0][0]',                   
+                                                                  'model_2[0][0]']                
+                                                                                                  
+ reshape (Reshape)              (None, 50, 3584)     0           ['lambda_1[0][0]']               
+                                                                                                  
+ fc_9 (Dense)                   (None, 50, 128)      458880      ['reshape[0][0]']                
+                                                                                                  
+ lstm_10 (LSTM)                 (None, 50, 128)      131584      ['fc_9[0][0]']                   
+                                                                                                  
+ lstm_10_back (LSTM)            (None, 50, 128)      131584      ['fc_9[0][0]']                   
+                                                                                                  
+ add (Add)                      (None, 50, 128)      0           ['lstm_10[0][0]',                
+                                                                  'lstm_10_back[0][0]']           
+                                                                                                  
+ lstm_11 (LSTM)                 (None, 50, 128)      131584      ['add[0][0]']                    
+                                                                                                  
+ lstm_11_back (LSTM)            (None, 50, 128)      131584      ['add[0][0]']                    
+                                                                                                  
+ concatenate_4 (Concatenate)    (None, 50, 256)      0           ['lstm_11[0][0]',                
+                                                                  'lstm_11_back[0][0]']           
+                                                                                                  
+ dropout (Dropout)              (None, 50, 256)      0           ['concatenate_4[0][0]']          
+                                                                                                  
+ fc_12 (Dense)                  (None, 50, 37)       9509        ['dropout[0][0]']                
+                                                                                                  
+ lambda_2 (Lambda)              (None, 48, 37)       0           ['fc_12[0][0]']                  
+                                                                                                  
+ decode (Lambda)                (None, 48)           0           ['lambda_2[0][0]']               
+                                                                                                  
+==================================================================================================
+Total params: 8,794,267
+Trainable params: 8,791,707
+Non-trainable params: 2,560
+__________________________________________________________________________________________________
+Model: "model_5"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ input_2 (InputLayer)           [(None, 31, 200, 1)  0           []                               
+                                ]                                                                 
+                                                                                                  
+ permute (Permute)              (None, 200, 31, 1)   0           ['input_2[0][0]']                
+                                                                                                  
+ lambda (Lambda)                (None, 200, 31, 1)   0           ['permute[0][0]']                
+                                                                                                  
+ conv_1 (Conv2D)                (None, 200, 31, 64)  640         ['lambda[0][0]']                 
+                                                                                                  
+ conv_2 (Conv2D)                (None, 200, 31, 128  73856       ['conv_1[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ conv_3 (Conv2D)                (None, 200, 31, 256  295168      ['conv_2[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ bn_3 (BatchNormalization)      (None, 200, 31, 256  1024        ['conv_3[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ maxpool_3 (MaxPooling2D)       (None, 100, 15, 256  0           ['bn_3[0][0]']                   
+                                )                                                                 
+                                                                                                  
+ conv_4 (Conv2D)                (None, 100, 15, 256  590080      ['maxpool_3[0][0]']              
+                                )                                                                 
+                                                                                                  
+ conv_5 (Conv2D)                (None, 100, 15, 512  1180160     ['conv_4[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ bn_5 (BatchNormalization)      (None, 100, 15, 512  2048        ['conv_5[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ maxpool_5 (MaxPooling2D)       (None, 50, 7, 512)   0           ['bn_5[0][0]']                   
+                                                                                                  
+ conv_6 (Conv2D)                (None, 50, 7, 512)   2359808     ['maxpool_5[0][0]']              
+                                                                                                  
+ conv_7 (Conv2D)                (None, 50, 7, 512)   2359808     ['conv_6[0][0]']                 
+                                                                                                  
+ bn_7 (BatchNormalization)      (None, 50, 7, 512)   2048        ['conv_7[0][0]']                 
+                                                                                                  
+ model_2 (Functional)           (None, 6)            934902      ['bn_7[0][0]']                   
+                                                                                                  
+ lambda_1 (Lambda)              (None, 50, 7, 512)   0           ['bn_7[0][0]',                   
+                                                                  'model_2[0][0]']                
+                                                                                                  
+ reshape (Reshape)              (None, 50, 3584)     0           ['lambda_1[0][0]']               
+                                                                                                  
+ fc_9 (Dense)                   (None, 50, 128)      458880      ['reshape[0][0]']                
+                                                                                                  
+ lstm_10 (LSTM)                 (None, 50, 128)      131584      ['fc_9[0][0]']                   
+                                                                                                  
+ lstm_10_back (LSTM)            (None, 50, 128)      131584      ['fc_9[0][0]']                   
+                                                                                                  
+ add (Add)                      (None, 50, 128)      0           ['lstm_10[0][0]',                
+                                                                  'lstm_10_back[0][0]']           
+                                                                                                  
+ lstm_11 (LSTM)                 (None, 50, 128)      131584      ['add[0][0]']                    
+                                                                                                  
+ lstm_11_back (LSTM)            (None, 50, 128)      131584      ['add[0][0]']                    
+                                                                                                  
+ concatenate_4 (Concatenate)    (None, 50, 256)      0           ['lstm_11[0][0]',                
+                                                                  'lstm_11_back[0][0]']           
+                                                                                                  
+ dropout (Dropout)              (None, 50, 256)      0           ['concatenate_4[0][0]']          
+                                                                                                  
+ fc_12 (Dense)                  (None, 50, 37)       9509        ['dropout[0][0]']                
+                                                                                                  
+ lambda_2 (Lambda)              (None, 48, 37)       0           ['fc_12[0][0]']                  
+                                                                                                  
+ decode (Lambda)                (None, 48)           0           ['lambda_2[0][0]']               
+                                                                                                  
+==================================================================================================
+Total params: 8,794,267
+Trainable params: 8,791,707
+Non-trainable params: 2,560
+__________________________________________________________________________________________________
+Model: "model_12"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ input_7 (InputLayer)           [(None, 31, 200, 1)  0           []                               
+                                ]                                                                 
+                                                                                                  
+ permute_1 (Permute)            (None, 200, 31, 1)   0           ['input_7[0][0]']                
+                                                                                                  
+ lambda_4 (Lambda)              (None, 200, 31, 1)   0           ['permute_1[0][0]']              
+                                                                                                  
+ conv_1 (Conv2D)                (None, 200, 31, 64)  640         ['lambda_4[0][0]']               
+                                                                                                  
+ conv_2 (Conv2D)                (None, 200, 31, 128  73856       ['conv_1[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ conv_3 (Conv2D)                (None, 200, 31, 256  295168      ['conv_2[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ bn_3 (BatchNormalization)      (None, 200, 31, 256  1024        ['conv_3[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ maxpool_3 (MaxPooling2D)       (None, 100, 15, 256  0           ['bn_3[0][0]']                   
+                                )                                                                 
+                                                                                                  
+ conv_4 (Conv2D)                (None, 100, 15, 256  590080      ['maxpool_3[0][0]']              
+                                )                                                                 
+                                                                                                  
+ conv_5 (Conv2D)                (None, 100, 15, 512  1180160     ['conv_4[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ bn_5 (BatchNormalization)      (None, 100, 15, 512  2048        ['conv_5[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ maxpool_5 (MaxPooling2D)       (None, 50, 7, 512)   0           ['bn_5[0][0]']                   
+                                                                                                  
+ conv_6 (Conv2D)                (None, 50, 7, 512)   2359808     ['maxpool_5[0][0]']              
+                                                                                                  
+ conv_7 (Conv2D)                (None, 50, 7, 512)   2359808     ['conv_6[0][0]']                 
+                                                                                                  
+ bn_7 (BatchNormalization)      (None, 50, 7, 512)   2048        ['conv_7[0][0]']                 
+                                                                                                  
+ model_9 (Functional)           (None, 6)            934902      ['bn_7[0][0]']                   
+                                                                                                  
+ lambda_5 (Lambda)              (None, 50, 7, 512)   0           ['bn_7[0][0]',                   
+                                                                  'model_9[0][0]']                
+                                                                                                  
+ reshape (Reshape)              (None, 50, 3584)     0           ['lambda_5[0][0]']               
+                                                                                                  
+ fc_9 (Dense)                   (None, 50, 128)      458880      ['reshape[0][0]']                
+                                                                                                  
+ lstm_10 (LSTM)                 (None, 50, 128)      131584      ['fc_9[0][0]']                   
+                                                                                                  
+ lstm_10_back (LSTM)            (None, 50, 128)      131584      ['fc_9[0][0]']                   
+                                                                                                  
+ add_1 (Add)                    (None, 50, 128)      0           ['lstm_10[0][0]',                
+                                                                  'lstm_10_back[0][0]']           
+                                                                                                  
+ lstm_11 (LSTM)                 (None, 50, 128)      131584      ['add_1[0][0]']                  
+                                                                                                  
+ lstm_11_back (LSTM)            (None, 50, 128)      131584      ['add_1[0][0]']                  
+                                                                                                  
+ concatenate_9 (Concatenate)    (None, 50, 256)      0           ['lstm_11[0][0]',                
+                                                                  'lstm_11_back[0][0]']           
+                                                                                                  
+ dropout (Dropout)              (None, 50, 256)      0           ['concatenate_9[0][0]']          
+                                                                                                  
+ fc_12 (Dense)                  (None, 50, 37)       9509        ['dropout[0][0]']                
+                                                                                                  
+ lambda_6 (Lambda)              (None, 48, 37)       0           ['fc_12[0][0]']                  
+                                                                                                  
+ decode (Lambda)                (None, 48)           0           ['lambda_6[0][0]']               
+                                                                                                  
+==================================================================================================
+Total params: 8,794,267
+Trainable params: 8,791,707
+Non-trainable params: 2,560
+__________________________________________________________________________________________________
+Model: "model_19"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ input_12 (InputLayer)          [(None, 31, 200, 1)  0           []                               
+                                ]                                                                 
+                                                                                                  
+ permute_2 (Permute)            (None, 200, 31, 1)   0           ['input_12[0][0]']               
+                                                                                                  
+ lambda_8 (Lambda)              (None, 200, 31, 1)   0           ['permute_2[0][0]']              
+                                                                                                  
+ conv_1 (Conv2D)                (None, 200, 31, 64)  640         ['lambda_8[0][0]']               
+                                                                                                  
+ conv_2 (Conv2D)                (None, 200, 31, 128  73856       ['conv_1[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ conv_3 (Conv2D)                (None, 200, 31, 256  295168      ['conv_2[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ bn_3 (BatchNormalization)      (None, 200, 31, 256  1024        ['conv_3[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ maxpool_3 (MaxPooling2D)       (None, 100, 15, 256  0           ['bn_3[0][0]']                   
+                                )                                                                 
+                                                                                                  
+ conv_4 (Conv2D)                (None, 100, 15, 256  590080      ['maxpool_3[0][0]']              
+                                )                                                                 
+                                                                                                  
+ conv_5 (Conv2D)                (None, 100, 15, 512  1180160     ['conv_4[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ bn_5 (BatchNormalization)      (None, 100, 15, 512  2048        ['conv_5[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ maxpool_5 (MaxPooling2D)       (None, 50, 7, 512)   0           ['bn_5[0][0]']                   
+                                                                                                  
+ conv_6 (Conv2D)                (None, 50, 7, 512)   2359808     ['maxpool_5[0][0]']              
+                                                                                                  
+ conv_7 (Conv2D)                (None, 50, 7, 512)   2359808     ['conv_6[0][0]']                 
+                                                                                                  
+ bn_7 (BatchNormalization)      (None, 50, 7, 512)   2048        ['conv_7[0][0]']                 
+                                                                                                  
+ model_16 (Functional)          (None, 6)            934902      ['bn_7[0][0]']                   
+                                                                                                  
+ lambda_9 (Lambda)              (None, 50, 7, 512)   0           ['bn_7[0][0]',                   
+                                                                  'model_16[0][0]']               
+                                                                                                  
+ reshape (Reshape)              (None, 50, 3584)     0           ['lambda_9[0][0]']               
+                                                                                                  
+ fc_9 (Dense)                   (None, 50, 128)      458880      ['reshape[0][0]']                
+                                                                                                  
+ lstm_10 (LSTM)                 (None, 50, 128)      131584      ['fc_9[0][0]']                   
+                                                                                                  
+ lstm_10_back (LSTM)            (None, 50, 128)      131584      ['fc_9[0][0]']                   
+                                                                                                  
+ add_2 (Add)                    (None, 50, 128)      0           ['lstm_10[0][0]',                
+                                                                  'lstm_10_back[0][0]']           
+                                                                                                  
+ lstm_11 (LSTM)                 (None, 50, 128)      131584      ['add_2[0][0]']                  
+                                                                                                  
+ lstm_11_back (LSTM)            (None, 50, 128)      131584      ['add_2[0][0]']                  
+                                                                                                  
+ concatenate_14 (Concatenate)   (None, 50, 256)      0           ['lstm_11[0][0]',                
+                                                                  'lstm_11_back[0][0]']           
+                                                                                                  
+ dropout (Dropout)              (None, 50, 256)      0           ['concatenate_14[0][0]']         
+                                                                                                  
+ fc_12 (Dense)                  (None, 50, 37)       9509        ['dropout[0][0]']                
+                                                                                                  
+ lambda_10 (Lambda)             (None, 48, 37)       0           ['fc_12[0][0]']                  
+                                                                                                  
+ decode (Lambda)                (None, 48)           0           ['lambda_10[0][0]']              
+                                                                                                  
+==================================================================================================
+Total params: 8,794,267
+Trainable params: 8,791,707
+Non-trainable params: 2,560
+__________________________________________________________________________________________________
+Model: "model_26"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ input_17 (InputLayer)          [(None, 31, 200, 1)  0           []                               
+                                ]                                                                 
+                                                                                                  
+ permute_3 (Permute)            (None, 200, 31, 1)   0           ['input_17[0][0]']               
+                                                                                                  
+ lambda_12 (Lambda)             (None, 200, 31, 1)   0           ['permute_3[0][0]']              
+                                                                                                  
+ conv_1 (Conv2D)                (None, 200, 31, 64)  640         ['lambda_12[0][0]']              
+                                                                                                  
+ conv_2 (Conv2D)                (None, 200, 31, 128  73856       ['conv_1[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ conv_3 (Conv2D)                (None, 200, 31, 256  295168      ['conv_2[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ bn_3 (BatchNormalization)      (None, 200, 31, 256  1024        ['conv_3[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ maxpool_3 (MaxPooling2D)       (None, 100, 15, 256  0           ['bn_3[0][0]']                   
+                                )                                                                 
+                                                                                                  
+ conv_4 (Conv2D)                (None, 100, 15, 256  590080      ['maxpool_3[0][0]']              
+                                )                                                                 
+                                                                                                  
+ conv_5 (Conv2D)                (None, 100, 15, 512  1180160     ['conv_4[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ bn_5 (BatchNormalization)      (None, 100, 15, 512  2048        ['conv_5[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ maxpool_5 (MaxPooling2D)       (None, 50, 7, 512)   0           ['bn_5[0][0]']                   
+                                                                                                  
+ conv_6 (Conv2D)                (None, 50, 7, 512)   2359808     ['maxpool_5[0][0]']              
+                                                                                                  
+ conv_7 (Conv2D)                (None, 50, 7, 512)   2359808     ['conv_6[0][0]']                 
+                                                                                                  
+ bn_7 (BatchNormalization)      (None, 50, 7, 512)   2048        ['conv_7[0][0]']                 
+                                                                                                  
+ model_23 (Functional)          (None, 6)            934902      ['bn_7[0][0]']                   
+                                                                                                  
+ lambda_13 (Lambda)             (None, 50, 7, 512)   0           ['bn_7[0][0]',                   
+                                                                  'model_23[0][0]']               
+                                                                                                  
+ reshape (Reshape)              (None, 50, 3584)     0           ['lambda_13[0][0]']              
+                                                                                                  
+ fc_9 (Dense)                   (None, 50, 128)      458880      ['reshape[0][0]']                
+                                                                                                  
+ lstm_10 (LSTM)                 (None, 50, 128)      131584      ['fc_9[0][0]']                   
+                                                                                                  
+ lstm_10_back (LSTM)            (None, 50, 128)      131584      ['fc_9[0][0]']                   
+                                                                                                  
+ add_3 (Add)                    (None, 50, 128)      0           ['lstm_10[0][0]',                
+                                                                  'lstm_10_back[0][0]']           
+                                                                                                  
+ lstm_11 (LSTM)                 (None, 50, 128)      131584      ['add_3[0][0]']                  
+                                                                                                  
+ lstm_11_back (LSTM)            (None, 50, 128)      131584      ['add_3[0][0]']                  
+                                                                                                  
+ concatenate_19 (Concatenate)   (None, 50, 256)      0           ['lstm_11[0][0]',                
+                                                                  'lstm_11_back[0][0]']           
+                                                                                                  
+ dropout (Dropout)              (None, 50, 256)      0           ['concatenate_19[0][0]']         
+                                                                                                  
+ fc_12 (Dense)                  (None, 50, 37)       9509        ['dropout[0][0]']                
+                                                                                                  
+ lambda_14 (Lambda)             (None, 48, 37)       0           ['fc_12[0][0]']                  
+                                                                                                  
+ decode (Lambda)                (None, 48)           0           ['lambda_14[0][0]']              
+                                                                                                  
+==================================================================================================
+Total params: 8,794,267
+Trainable params: 8,791,707
+Non-trainable params: 2,560
+__________________________________________________________________________________________________
+Model: "model_33"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ input_22 (InputLayer)          [(None, 31, 200, 1)  0           []                               
+                                ]                                                                 
+                                                                                                  
+ permute_4 (Permute)            (None, 200, 31, 1)   0           ['input_22[0][0]']               
+                                                                                                  
+ lambda_16 (Lambda)             (None, 200, 31, 1)   0           ['permute_4[0][0]']              
+                                                                                                  
+ conv_1 (Conv2D)                (None, 200, 31, 64)  640         ['lambda_16[0][0]']              
+                                                                                                  
+ conv_2 (Conv2D)                (None, 200, 31, 128  73856       ['conv_1[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ conv_3 (Conv2D)                (None, 200, 31, 256  295168      ['conv_2[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ bn_3 (BatchNormalization)      (None, 200, 31, 256  1024        ['conv_3[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ maxpool_3 (MaxPooling2D)       (None, 100, 15, 256  0           ['bn_3[0][0]']                   
+                                )                                                                 
+                                                                                                  
+ conv_4 (Conv2D)                (None, 100, 15, 256  590080      ['maxpool_3[0][0]']              
+                                )                                                                 
+                                                                                                  
+ conv_5 (Conv2D)                (None, 100, 15, 512  1180160     ['conv_4[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ bn_5 (BatchNormalization)      (None, 100, 15, 512  2048        ['conv_5[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ maxpool_5 (MaxPooling2D)       (None, 50, 7, 512)   0           ['bn_5[0][0]']                   
+                                                                                                  
+ conv_6 (Conv2D)                (None, 50, 7, 512)   2359808     ['maxpool_5[0][0]']              
+                                                                                                  
+ conv_7 (Conv2D)                (None, 50, 7, 512)   2359808     ['conv_6[0][0]']                 
+                                                                                                  
+ bn_7 (BatchNormalization)      (None, 50, 7, 512)   2048        ['conv_7[0][0]']                 
+                                                                                                  
+ model_30 (Functional)          (None, 6)            934902      ['bn_7[0][0]']                   
+                                                                                                  
+ lambda_17 (Lambda)             (None, 50, 7, 512)   0           ['bn_7[0][0]',                   
+                                                                  'model_30[0][0]']               
+                                                                                                  
+ reshape (Reshape)              (None, 50, 3584)     0           ['lambda_17[0][0]']              
+                                                                                                  
+ fc_9 (Dense)                   (None, 50, 128)      458880      ['reshape[0][0]']                
+                                                                                                  
+ lstm_10 (LSTM)                 (None, 50, 128)      131584      ['fc_9[0][0]']                   
+                                                                                                  
+ lstm_10_back (LSTM)            (None, 50, 128)      131584      ['fc_9[0][0]']                   
+                                                                                                  
+ add_4 (Add)                    (None, 50, 128)      0           ['lstm_10[0][0]',                
+                                                                  'lstm_10_back[0][0]']           
+                                                                                                  
+ lstm_11 (LSTM)                 (None, 50, 128)      131584      ['add_4[0][0]']                  
+                                                                                                  
+ lstm_11_back (LSTM)            (None, 50, 128)      131584      ['add_4[0][0]']                  
+                                                                                                  
+ concatenate_24 (Concatenate)   (None, 50, 256)      0           ['lstm_11[0][0]',                
+                                                                  'lstm_11_back[0][0]']           
+                                                                                                  
+ dropout (Dropout)              (None, 50, 256)      0           ['concatenate_24[0][0]']         
+                                                                                                  
+ fc_12 (Dense)                  (None, 50, 37)       9509        ['dropout[0][0]']                
+                                                                                                  
+ lambda_18 (Lambda)             (None, 48, 37)       0           ['fc_12[0][0]']                  
+                                                                                                  
+ decode (Lambda)                (None, 48)           0           ['lambda_18[0][0]']              
+                                                                                                  
+==================================================================================================
+Total params: 8,794,267
+Trainable params: 8,791,707
+Non-trainable params: 2,560
+__________________________________________________________________________________________________
+Model: "model_40"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ input_27 (InputLayer)          [(None, 31, 200, 1)  0           []                               
+                                ]                                                                 
+                                                                                                  
+ permute_5 (Permute)            (None, 200, 31, 1)   0           ['input_27[0][0]']               
+                                                                                                  
+ lambda_20 (Lambda)             (None, 200, 31, 1)   0           ['permute_5[0][0]']              
+                                                                                                  
+ conv_1 (Conv2D)                (None, 200, 31, 64)  640         ['lambda_20[0][0]']              
+                                                                                                  
+ conv_2 (Conv2D)                (None, 200, 31, 128  73856       ['conv_1[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ conv_3 (Conv2D)                (None, 200, 31, 256  295168      ['conv_2[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ bn_3 (BatchNormalization)      (None, 200, 31, 256  1024        ['conv_3[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ maxpool_3 (MaxPooling2D)       (None, 100, 15, 256  0           ['bn_3[0][0]']                   
+                                )                                                                 
+                                                                                                  
+ conv_4 (Conv2D)                (None, 100, 15, 256  590080      ['maxpool_3[0][0]']              
+                                )                                                                 
+                                                                                                  
+ conv_5 (Conv2D)                (None, 100, 15, 512  1180160     ['conv_4[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ bn_5 (BatchNormalization)      (None, 100, 15, 512  2048        ['conv_5[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ maxpool_5 (MaxPooling2D)       (None, 50, 7, 512)   0           ['bn_5[0][0]']                   
+                                                                                                  
+ conv_6 (Conv2D)                (None, 50, 7, 512)   2359808     ['maxpool_5[0][0]']              
+                                                                                                  
+ conv_7 (Conv2D)                (None, 50, 7, 512)   2359808     ['conv_6[0][0]']                 
+                                                                                                  
+ bn_7 (BatchNormalization)      (None, 50, 7, 512)   2048        ['conv_7[0][0]']                 
+                                                                                                  
+ model_37 (Functional)          (None, 6)            934902      ['bn_7[0][0]']                   
+                                                                                                  
+ lambda_21 (Lambda)             (None, 50, 7, 512)   0           ['bn_7[0][0]',                   
+                                                                  'model_37[0][0]']               
+                                                                                                  
+ reshape (Reshape)              (None, 50, 3584)     0           ['lambda_21[0][0]']              
+                                                                                                  
+ fc_9 (Dense)                   (None, 50, 128)      458880      ['reshape[0][0]']                
+                                                                                                  
+ lstm_10 (LSTM)                 (None, 50, 128)      131584      ['fc_9[0][0]']                   
+                                                                                                  
+ lstm_10_back (LSTM)            (None, 50, 128)      131584      ['fc_9[0][0]']                   
+                                                                                                  
+ add_5 (Add)                    (None, 50, 128)      0           ['lstm_10[0][0]',                
+                                                                  'lstm_10_back[0][0]']           
+                                                                                                  
+ lstm_11 (LSTM)                 (None, 50, 128)      131584      ['add_5[0][0]']                  
+                                                                                                  
+ lstm_11_back (LSTM)            (None, 50, 128)      131584      ['add_5[0][0]']                  
+                                                                                                  
+ concatenate_29 (Concatenate)   (None, 50, 256)      0           ['lstm_11[0][0]',                
+                                                                  'lstm_11_back[0][0]']           
+                                                                                                  
+ dropout (Dropout)              (None, 50, 256)      0           ['concatenate_29[0][0]']         
+                                                                                                  
+ fc_12 (Dense)                  (None, 50, 37)       9509        ['dropout[0][0]']                
+                                                                                                  
+ lambda_22 (Lambda)             (None, 48, 37)       0           ['fc_12[0][0]']                  
+                                                                                                  
+ decode (Lambda)                (None, 48)           0           ['lambda_22[0][0]']              
+                                                                                                  
+==================================================================================================
+Total params: 8,794,267
+Trainable params: 8,791,707
+Non-trainable params: 2,560
+__________________________________________________________________________________________________
+Model: "model_47"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ input_32 (InputLayer)          [(None, 31, 200, 1)  0           []                               
+                                ]                                                                 
+                                                                                                  
+ permute_6 (Permute)            (None, 200, 31, 1)   0           ['input_32[0][0]']               
+                                                                                                  
+ lambda_24 (Lambda)             (None, 200, 31, 1)   0           ['permute_6[0][0]']              
+                                                                                                  
+ conv_1 (Conv2D)                (None, 200, 31, 64)  640         ['lambda_24[0][0]']              
+                                                                                                  
+ conv_2 (Conv2D)                (None, 200, 31, 128  73856       ['conv_1[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ conv_3 (Conv2D)                (None, 200, 31, 256  295168      ['conv_2[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ bn_3 (BatchNormalization)      (None, 200, 31, 256  1024        ['conv_3[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ maxpool_3 (MaxPooling2D)       (None, 100, 15, 256  0           ['bn_3[0][0]']                   
+                                )                                                                 
+                                                                                                  
+ conv_4 (Conv2D)                (None, 100, 15, 256  590080      ['maxpool_3[0][0]']              
+                                )                                                                 
+                                                                                                  
+ conv_5 (Conv2D)                (None, 100, 15, 512  1180160     ['conv_4[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ bn_5 (BatchNormalization)      (None, 100, 15, 512  2048        ['conv_5[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ maxpool_5 (MaxPooling2D)       (None, 50, 7, 512)   0           ['bn_5[0][0]']                   
+                                                                                                  
+ conv_6 (Conv2D)                (None, 50, 7, 512)   2359808     ['maxpool_5[0][0]']              
+                                                                                                  
+ conv_7 (Conv2D)                (None, 50, 7, 512)   2359808     ['conv_6[0][0]']                 
+                                                                                                  
+ bn_7 (BatchNormalization)      (None, 50, 7, 512)   2048        ['conv_7[0][0]']                 
+                                                                                                  
+ model_44 (Functional)          (None, 6)            934902      ['bn_7[0][0]']                   
+                                                                                                  
+ lambda_25 (Lambda)             (None, 50, 7, 512)   0           ['bn_7[0][0]',                   
+                                                                  'model_44[0][0]']               
+                                                                                                  
+ reshape (Reshape)              (None, 50, 3584)     0           ['lambda_25[0][0]']              
+                                                                                                  
+ fc_9 (Dense)                   (None, 50, 128)      458880      ['reshape[0][0]']                
+                                                                                                  
+ lstm_10 (LSTM)                 (None, 50, 128)      131584      ['fc_9[0][0]']                   
+                                                                                                  
+ lstm_10_back (LSTM)            (None, 50, 128)      131584      ['fc_9[0][0]']                   
+                                                                                                  
+ add_6 (Add)                    (None, 50, 128)      0           ['lstm_10[0][0]',                
+                                                                  'lstm_10_back[0][0]']           
+                                                                                                  
+ lstm_11 (LSTM)                 (None, 50, 128)      131584      ['add_6[0][0]']                  
+                                                                                                  
+ lstm_11_back (LSTM)            (None, 50, 128)      131584      ['add_6[0][0]']                  
+                                                                                                  
+ concatenate_34 (Concatenate)   (None, 50, 256)      0           ['lstm_11[0][0]',                
+                                                                  'lstm_11_back[0][0]']           
+                                                                                                  
+ dropout (Dropout)              (None, 50, 256)      0           ['concatenate_34[0][0]']         
+                                                                                                  
+ fc_12 (Dense)                  (None, 50, 37)       9509        ['dropout[0][0]']                
+                                                                                                  
+ lambda_26 (Lambda)             (None, 48, 37)       0           ['fc_12[0][0]']                  
+                                                                                                  
+ decode (Lambda)                (None, 48)           0           ['lambda_26[0][0]']              
+                                                                                                  
+==================================================================================================
+Total params: 8,794,267
+Trainable params: 8,791,707
+Non-trainable params: 2,560
+__________________________________________________________________________________________________
+Model: "model_54"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ input_37 (InputLayer)          [(None, 31, 200, 1)  0           []                               
+                                ]                                                                 
+                                                                                                  
+ permute_7 (Permute)            (None, 200, 31, 1)   0           ['input_37[0][0]']               
+                                                                                                  
+ lambda_28 (Lambda)             (None, 200, 31, 1)   0           ['permute_7[0][0]']              
+                                                                                                  
+ conv_1 (Conv2D)                (None, 200, 31, 64)  640         ['lambda_28[0][0]']              
+                                                                                                  
+ conv_2 (Conv2D)                (None, 200, 31, 128  73856       ['conv_1[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ conv_3 (Conv2D)                (None, 200, 31, 256  295168      ['conv_2[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ bn_3 (BatchNormalization)      (None, 200, 31, 256  1024        ['conv_3[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ maxpool_3 (MaxPooling2D)       (None, 100, 15, 256  0           ['bn_3[0][0]']                   
+                                )                                                                 
+                                                                                                  
+ conv_4 (Conv2D)                (None, 100, 15, 256  590080      ['maxpool_3[0][0]']              
+                                )                                                                 
+                                                                                                  
+ conv_5 (Conv2D)                (None, 100, 15, 512  1180160     ['conv_4[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ bn_5 (BatchNormalization)      (None, 100, 15, 512  2048        ['conv_5[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ maxpool_5 (MaxPooling2D)       (None, 50, 7, 512)   0           ['bn_5[0][0]']                   
+                                                                                                  
+ conv_6 (Conv2D)                (None, 50, 7, 512)   2359808     ['maxpool_5[0][0]']              
+                                                                                                  
+ conv_7 (Conv2D)                (None, 50, 7, 512)   2359808     ['conv_6[0][0]']                 
+                                                                                                  
+ bn_7 (BatchNormalization)      (None, 50, 7, 512)   2048        ['conv_7[0][0]']                 
+                                                                                                  
+ model_51 (Functional)          (None, 6)            934902      ['bn_7[0][0]']                   
+                                                                                                  
+ lambda_29 (Lambda)             (None, 50, 7, 512)   0           ['bn_7[0][0]',                   
+                                                                  'model_51[0][0]']               
+                                                                                                  
+ reshape (Reshape)              (None, 50, 3584)     0           ['lambda_29[0][0]']              
+                                                                                                  
+ fc_9 (Dense)                   (None, 50, 128)      458880      ['reshape[0][0]']                
+                                                                                                  
+ lstm_10 (LSTM)                 (None, 50, 128)      131584      ['fc_9[0][0]']                   
+                                                                                                  
+ lstm_10_back (LSTM)            (None, 50, 128)      131584      ['fc_9[0][0]']                   
+                                                                                                  
+ add_7 (Add)                    (None, 50, 128)      0           ['lstm_10[0][0]',                
+                                                                  'lstm_10_back[0][0]']           
+                                                                                                  
+ lstm_11 (LSTM)                 (None, 50, 128)      131584      ['add_7[0][0]']                  
+                                                                                                  
+ lstm_11_back (LSTM)            (None, 50, 128)      131584      ['add_7[0][0]']                  
+                                                                                                  
+ concatenate_39 (Concatenate)   (None, 50, 256)      0           ['lstm_11[0][0]',                
+                                                                  'lstm_11_back[0][0]']           
+                                                                                                  
+ dropout (Dropout)              (None, 50, 256)      0           ['concatenate_39[0][0]']         
+                                                                                                  
+ fc_12 (Dense)                  (None, 50, 37)       9509        ['dropout[0][0]']                
+                                                                                                  
+ lambda_30 (Lambda)             (None, 48, 37)       0           ['fc_12[0][0]']                  
+                                                                                                  
+ decode (Lambda)                (None, 48)           0           ['lambda_30[0][0]']              
+                                                                                                  
+==================================================================================================
+Total params: 8,794,267
+Trainable params: 8,791,707
+Non-trainable params: 2,560
+__________________________________________________________________________________________________
+Model: "model_5"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ input_2 (InputLayer)           [(None, 31, 200, 1)  0           []                               
+                                ]                                                                 
+                                                                                                  
+ permute (Permute)              (None, 200, 31, 1)   0           ['input_2[0][0]']                
+                                                                                                  
+ lambda (Lambda)                (None, 200, 31, 1)   0           ['permute[0][0]']                
+                                                                                                  
+ conv_1 (Conv2D)                (None, 200, 31, 64)  640         ['lambda[0][0]']                 
+                                                                                                  
+ conv_2 (Conv2D)                (None, 200, 31, 128  73856       ['conv_1[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ conv_3 (Conv2D)                (None, 200, 31, 256  295168      ['conv_2[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ bn_3 (BatchNormalization)      (None, 200, 31, 256  1024        ['conv_3[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ maxpool_3 (MaxPooling2D)       (None, 100, 15, 256  0           ['bn_3[0][0]']                   
+                                )                                                                 
+                                                                                                  
+ conv_4 (Conv2D)                (None, 100, 15, 256  590080      ['maxpool_3[0][0]']              
+                                )                                                                 
+                                                                                                  
+ conv_5 (Conv2D)                (None, 100, 15, 512  1180160     ['conv_4[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ bn_5 (BatchNormalization)      (None, 100, 15, 512  2048        ['conv_5[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ maxpool_5 (MaxPooling2D)       (None, 50, 7, 512)   0           ['bn_5[0][0]']                   
+                                                                                                  
+ conv_6 (Conv2D)                (None, 50, 7, 512)   2359808     ['maxpool_5[0][0]']              
+                                                                                                  
+ conv_7 (Conv2D)                (None, 50, 7, 512)   2359808     ['conv_6[0][0]']                 
+                                                                                                  
+ bn_7 (BatchNormalization)      (None, 50, 7, 512)   2048        ['conv_7[0][0]']                 
+                                                                                                  
+ model_2 (Functional)           (None, 6)            934902      ['bn_7[0][0]']                   
+                                                                                                  
+ lambda_1 (Lambda)              (None, 50, 7, 512)   0           ['bn_7[0][0]',                   
+                                                                  'model_2[0][0]']                
+                                                                                                  
+ reshape (Reshape)              (None, 50, 3584)     0           ['lambda_1[0][0]']               
+                                                                                                  
+ fc_9 (Dense)                   (None, 50, 128)      458880      ['reshape[0][0]']                
+                                                                                                  
+ lstm_10 (LSTM)                 (None, 50, 128)      131584      ['fc_9[0][0]']                   
+                                                                                                  
+ lstm_10_back (LSTM)            (None, 50, 128)      131584      ['fc_9[0][0]']                   
+                                                                                                  
+ add (Add)                      (None, 50, 128)      0           ['lstm_10[0][0]',                
+                                                                  'lstm_10_back[0][0]']           
+                                                                                                  
+ lstm_11 (LSTM)                 (None, 50, 128)      131584      ['add[0][0]']                    
+                                                                                                  
+ lstm_11_back (LSTM)            (None, 50, 128)      131584      ['add[0][0]']                    
+                                                                                                  
+ concatenate_4 (Concatenate)    (None, 50, 256)      0           ['lstm_11[0][0]',                
+                                                                  'lstm_11_back[0][0]']           
+                                                                                                  
+ dropout (Dropout)              (None, 50, 256)      0           ['concatenate_4[0][0]']          
+                                                                                                  
+ fc_12 (Dense)                  (None, 50, 37)       9509        ['dropout[0][0]']                
+                                                                                                  
+ lambda_2 (Lambda)              (None, 48, 37)       0           ['fc_12[0][0]']                  
+                                                                                                  
+ decode (Lambda)                (None, 48)           0           ['lambda_2[0][0]']               
+                                                                                                  
+==================================================================================================
+Total params: 8,794,267
+Trainable params: 8,791,707
+Non-trainable params: 2,560
+__________________________________________________________________________________________________
+Model: "model_12"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ input_7 (InputLayer)           [(None, 31, 200, 1)  0           []                               
+                                ]                                                                 
+                                                                                                  
+ permute_1 (Permute)            (None, 200, 31, 1)   0           ['input_7[0][0]']                
+                                                                                                  
+ lambda_4 (Lambda)              (None, 200, 31, 1)   0           ['permute_1[0][0]']              
+                                                                                                  
+ conv_1 (Conv2D)                (None, 200, 31, 64)  640         ['lambda_4[0][0]']               
+                                                                                                  
+ conv_2 (Conv2D)                (None, 200, 31, 128  73856       ['conv_1[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ conv_3 (Conv2D)                (None, 200, 31, 256  295168      ['conv_2[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ bn_3 (BatchNormalization)      (None, 200, 31, 256  1024        ['conv_3[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ maxpool_3 (MaxPooling2D)       (None, 100, 15, 256  0           ['bn_3[0][0]']                   
+                                )                                                                 
+                                                                                                  
+ conv_4 (Conv2D)                (None, 100, 15, 256  590080      ['maxpool_3[0][0]']              
+                                )                                                                 
+                                                                                                  
+ conv_5 (Conv2D)                (None, 100, 15, 512  1180160     ['conv_4[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ bn_5 (BatchNormalization)      (None, 100, 15, 512  2048        ['conv_5[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ maxpool_5 (MaxPooling2D)       (None, 50, 7, 512)   0           ['bn_5[0][0]']                   
+                                                                                                  
+ conv_6 (Conv2D)                (None, 50, 7, 512)   2359808     ['maxpool_5[0][0]']              
+                                                                                                  
+ conv_7 (Conv2D)                (None, 50, 7, 512)   2359808     ['conv_6[0][0]']                 
+                                                                                                  
+ bn_7 (BatchNormalization)      (None, 50, 7, 512)   2048        ['conv_7[0][0]']                 
+                                                                                                  
+ model_9 (Functional)           (None, 6)            934902      ['bn_7[0][0]']                   
+                                                                                                  
+ lambda_5 (Lambda)              (None, 50, 7, 512)   0           ['bn_7[0][0]',                   
+                                                                  'model_9[0][0]']                
+                                                                                                  
+ reshape (Reshape)              (None, 50, 3584)     0           ['lambda_5[0][0]']               
+                                                                                                  
+ fc_9 (Dense)                   (None, 50, 128)      458880      ['reshape[0][0]']                
+                                                                                                  
+ lstm_10 (LSTM)                 (None, 50, 128)      131584      ['fc_9[0][0]']                   
+                                                                                                  
+ lstm_10_back (LSTM)            (None, 50, 128)      131584      ['fc_9[0][0]']                   
+                                                                                                  
+ add_1 (Add)                    (None, 50, 128)      0           ['lstm_10[0][0]',                
+                                                                  'lstm_10_back[0][0]']           
+                                                                                                  
+ lstm_11 (LSTM)                 (None, 50, 128)      131584      ['add_1[0][0]']                  
+                                                                                                  
+ lstm_11_back (LSTM)            (None, 50, 128)      131584      ['add_1[0][0]']                  
+                                                                                                  
+ concatenate_9 (Concatenate)    (None, 50, 256)      0           ['lstm_11[0][0]',                
+                                                                  'lstm_11_back[0][0]']           
+                                                                                                  
+ dropout (Dropout)              (None, 50, 256)      0           ['concatenate_9[0][0]']          
+                                                                                                  
+ fc_12 (Dense)                  (None, 50, 37)       9509        ['dropout[0][0]']                
+                                                                                                  
+ lambda_6 (Lambda)              (None, 48, 37)       0           ['fc_12[0][0]']                  
+                                                                                                  
+ decode (Lambda)                (None, 48)           0           ['lambda_6[0][0]']               
+                                                                                                  
+==================================================================================================
+Total params: 8,794,267
+Trainable params: 8,791,707
+Non-trainable params: 2,560
+__________________________________________________________________________________________________
+Model: "model_5"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ input_2 (InputLayer)           [(None, 31, 200, 1)  0           []                               
+                                ]                                                                 
+                                                                                                  
+ permute (Permute)              (None, 200, 31, 1)   0           ['input_2[0][0]']                
+                                                                                                  
+ lambda (Lambda)                (None, 200, 31, 1)   0           ['permute[0][0]']                
+                                                                                                  
+ conv_1 (Conv2D)                (None, 200, 31, 64)  640         ['lambda[0][0]']                 
+                                                                                                  
+ conv_2 (Conv2D)                (None, 200, 31, 128  73856       ['conv_1[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ conv_3 (Conv2D)                (None, 200, 31, 256  295168      ['conv_2[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ bn_3 (BatchNormalization)      (None, 200, 31, 256  1024        ['conv_3[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ maxpool_3 (MaxPooling2D)       (None, 100, 15, 256  0           ['bn_3[0][0]']                   
+                                )                                                                 
+                                                                                                  
+ conv_4 (Conv2D)                (None, 100, 15, 256  590080      ['maxpool_3[0][0]']              
+                                )                                                                 
+                                                                                                  
+ conv_5 (Conv2D)                (None, 100, 15, 512  1180160     ['conv_4[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ bn_5 (BatchNormalization)      (None, 100, 15, 512  2048        ['conv_5[0][0]']                 
+                                )                                                                 
+                                                                                                  
+ maxpool_5 (MaxPooling2D)       (None, 50, 7, 512)   0           ['bn_5[0][0]']                   
+                                                                                                  
+ conv_6 (Conv2D)                (None, 50, 7, 512)   2359808     ['maxpool_5[0][0]']              
+                                                                                                  
+ conv_7 (Conv2D)                (None, 50, 7, 512)   2359808     ['conv_6[0][0]']                 
+                                                                                                  
+ bn_7 (BatchNormalization)      (None, 50, 7, 512)   2048        ['conv_7[0][0]']                 
+                                                                                                  
+ model_2 (Functional)           (None, 6)            934902      ['bn_7[0][0]']                   
+                                                                                                  
+ lambda_1 (Lambda)              (None, 50, 7, 512)   0           ['bn_7[0][0]',                   
+                                                                  'model_2[0][0]']                
+                                                                                                  
+ reshape (Reshape)              (None, 50, 3584)     0           ['lambda_1[0][0]']               
+                                                                                                  
+ fc_9 (Dense)                   (None, 50, 128)      458880      ['reshape[0][0]']                
+                                                                                                  
+ lstm_10 (LSTM)                 (None, 50, 128)      131584      ['fc_9[0][0]']                   
+                                                                                                  
+ lstm_10_back (LSTM)            (None, 50, 128)      131584      ['fc_9[0][0]']                   
+                                                                                                  
+ add (Add)                      (None, 50, 128)      0           ['lstm_10[0][0]',                
+                                                                  'lstm_10_back[0][0]']           
+                                                                                                  
+ lstm_11 (LSTM)                 (None, 50, 128)      131584      ['add[0][0]']                    
+                                                                                                  
+ lstm_11_back (LSTM)            (None, 50, 128)      131584      ['add[0][0]']                    
+                                                                                                  
+ concatenate_4 (Concatenate)    (None, 50, 256)      0           ['lstm_11[0][0]',                
+                                                                  'lstm_11_back[0][0]']           
+                                                                                                  
+ dropout (Dropout)              (None, 50, 256)      0           ['concatenate_4[0][0]']          
+                                                                                                  
+ fc_12 (Dense)                  (None, 50, 37)       9509        ['dropout[0][0]']                
+                                                                                                  
+ lambda_2 (Lambda)              (None, 48, 37)       0           ['fc_12[0][0]']                  
+                                                                                                  
+ decode (Lambda)                (None, 48)           0           ['lambda_2[0][0]']               
+                                                                                                  
+==================================================================================================
+Total params: 8,794,267
+Trainable params: 8,791,707
+Non-trainable params: 2,560
+__________________________________________________________________________________________________

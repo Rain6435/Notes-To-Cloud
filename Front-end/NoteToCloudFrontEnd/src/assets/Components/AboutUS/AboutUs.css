@@ -1,0 +1,79 @@
+@import url(https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap);
+
+#page {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #111111;
+}
+
+#description {
+    color: #a2c3dc;
+    width: auto;
+    max-width: 1000px;
+    text-align: center;
+    font-size: 1.25em;
+    background-image: url(./original.png);
+    background-repeat: repeat;
+    background-position-y: center;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: auto;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: 'Steelfish Rg', 'helvetica neue',
+             helvetica, arial, sans-serif;
+    font-weight: 800;
+    -webkit-font-smoothing: antialiased;
+}
+
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.card {
+    position: relative;
+    width: auto;
+    height: auto;
+    color: #fff;
+    background: transparent;
+    overflow: hidden;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1em;
+    margin: 1em;
+}
+#author{
+    padding: 1em;
+    color: whitesmoke;
+}
+#authorImage{
+    width: 100px;
+    margin: 1em;
+}
+#authors{
+    background: #090808;
+    backdrop-filter: blur(10px);
+    box-shadow:inset 0 0 5px #111111;
+    border-radius: 1em;
+    width: auto;
+    display: flex;
+}
+#authorsTitle{
+    color: whitesmoke;
+    margin-bottom: 2em;
+}
+@media only screen and (max-width: 700px){
+    #authors{
+        flex-direction: column;
+    }
+}

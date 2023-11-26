@@ -1,0 +1,129 @@
+*,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+#signupPage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#signup{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: auto;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255,255,255,0.13);
+    margin: auto;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    margin: 2em;
+    padding: 2em;
+}
+#signup *{
+    font-family: 'Poppins',sans-serif;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+#signup h1{
+    --fill-color: #198CE6;
+    font: 700 2rem Raleway, sans-serif;
+    text-transform: uppercase;
+    -webkit-text-stroke: 2px var(--fill-color);
+    color: transparent;
+}
+#signupForm{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: auto;
+    width: 700px;
+    margin: auto;
+    background-color: rgba(8,7,16,0.6);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    box-shadow:inset 0 0 5px rgba(255,255,255,0.13);
+    padding: 1em;
+    overflow-y: auto;
+    margin: 1em;
+}
+#signupForm *{
+    font-family: 'Poppins',sans-serif;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+    overflow-y: auto;
+}
+#signupForm h3{
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+}
+#formElement{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1em;
+    width: 100%;
+}
+
+#signupForm label{
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+#signupForm input{
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255,255,255,0.07);
+    border-radius: 3px;
+    padding: 0 20px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+#signupForm input:hover{
+    background-color: rgba(134, 132, 146, 0.6);
+}
+#signupForm select{
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255,255,255,0.07);
+    border-radius: 3px;
+    padding: 0 10px;
+    font-size: 14px;
+    font-weight: 300;
+}
+#signupForm option{
+    color: black;
+}
+#page{
+    display: flex;
+    flex-wrap: wrap;
+}
+#formSumbit:hover{
+    background-color: rgba(182, 176, 221, 0.6);
+}
+#homeBtnContainer{
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+#homeButton:hover{
+    color: #198CE6;
+}

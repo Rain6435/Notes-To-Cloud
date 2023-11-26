@@ -1,0 +1,67 @@
+#docsPage html,body,* {
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+#docsPage html,body {
+    height: 100%;
+    text-align: center;
+}
+
+#docsPage body {
+    padding: 2rem;
+    background: black
+}
+
+#docsPage h2 {
+    font-family: "Roboto", sans-serif;
+    font-size: 26px;
+    line-height: 1;
+    color: #454cad;
+    margin-bottom: 0;
+}
+
+#docsPage p {
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    color: #5f6982;
+}
+#docsPage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#twoSections{
+    display: flex;
+    flex-direction: row;
+}
+#docsBtn, #listBtn{
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255,255,255,0.07);
+    border-radius: 3px;
+    padding: 0 20px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+    font-family: 'Poppins',sans-serif;
+    color: #ffffff;
+    outline: none;
+    text-align: center;
+    border: none;
+    overflow-y: auto;
+}
+#listBtn:hover{
+    background-color: rgba(182, 176, 221, 0.6);
+}
+#docsBtn:hover{
+    background-color: rgba(182, 176, 221, 0.6);
+}
+#contentSection{
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    width: 300px;
+}

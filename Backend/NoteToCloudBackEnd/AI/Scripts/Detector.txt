@@ -1,0 +1,516 @@
+Model: "model_1"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ input_1 (InputLayer)           [(None, None, None,  0           []                               
+                                 3)]                                                              
+                                                                                                  
+ basenet.slice1.0 (Conv2D)      (None, None, None,   1792        ['input_1[0][0]']                
+                                64)                                                               
+                                                                                                  
+ basenet.slice1.1 (BatchNormali  (None, None, None,   256        ['basenet.slice1.0[0][0]']       
+ zation)                        64)                                                               
+                                                                                                  
+ basenet.slice1.2 (Activation)  (None, None, None,   0           ['basenet.slice1.1[0][0]']       
+                                64)                                                               
+                                                                                                  
+ basenet.slice1.3 (Conv2D)      (None, None, None,   36928       ['basenet.slice1.2[0][0]']       
+                                64)                                                               
+                                                                                                  
+ basenet.slice1.4 (BatchNormali  (None, None, None,   256        ['basenet.slice1.3[0][0]']       
+ zation)                        64)                                                               
+                                                                                                  
+ basenet.slice1.5 (Activation)  (None, None, None,   0           ['basenet.slice1.4[0][0]']       
+                                64)                                                               
+                                                                                                  
+ basenet.slice1.6 (MaxPooling2D  (None, None, None,   0          ['basenet.slice1.5[0][0]']       
+ )                              64)                                                               
+                                                                                                  
+ basenet.slice1.7 (Conv2D)      (None, None, None,   73856       ['basenet.slice1.6[0][0]']       
+                                128)                                                              
+                                                                                                  
+ basenet.slice1.8 (BatchNormali  (None, None, None,   512        ['basenet.slice1.7[0][0]']       
+ zation)                        128)                                                              
+                                                                                                  
+ basenet.slice1.9 (Activation)  (None, None, None,   0           ['basenet.slice1.8[0][0]']       
+                                128)                                                              
+                                                                                                  
+ basenet.slice1.10 (Conv2D)     (None, None, None,   147584      ['basenet.slice1.9[0][0]']       
+                                128)                                                              
+                                                                                                  
+ basenet.slice1.11 (BatchNormal  (None, None, None,   512        ['basenet.slice1.10[0][0]']      
+ ization)                       128)                                                              
+                                                                                                  
+ basenet.slice1.12 (Activation)  (None, None, None,   0          ['basenet.slice1.11[0][0]']      
+                                128)                                                              
+                                                                                                  
+ basenet.slice1.13 (MaxPooling2  (None, None, None,   0          ['basenet.slice1.12[0][0]']      
+ D)                             128)                                                              
+                                                                                                  
+ basenet.slice2.14 (Conv2D)     (None, None, None,   295168      ['basenet.slice1.13[0][0]']      
+                                256)                                                              
+                                                                                                  
+ basenet.slice2.15 (BatchNormal  (None, None, None,   1024       ['basenet.slice2.14[0][0]']      
+ ization)                       256)                                                              
+                                                                                                  
+ basenet.slice2.16 (Activation)  (None, None, None,   0          ['basenet.slice2.15[0][0]']      
+                                256)                                                              
+                                                                                                  
+ basenet.slice2.17 (Conv2D)     (None, None, None,   590080      ['basenet.slice2.16[0][0]']      
+                                256)                                                              
+                                                                                                  
+ basenet.slice2.18 (BatchNormal  (None, None, None,   1024       ['basenet.slice2.17[0][0]']      
+ ization)                       256)                                                              
+                                                                                                  
+ basenet.slice2.19 (Activation)  (None, None, None,   0          ['basenet.slice2.18[0][0]']      
+                                256)                                                              
+                                                                                                  
+ basenet.slice3.20 (Conv2D)     (None, None, None,   590080      ['basenet.slice2.19[0][0]']      
+                                256)                                                              
+                                                                                                  
+ basenet.slice3.21 (BatchNormal  (None, None, None,   1024       ['basenet.slice3.20[0][0]']      
+ ization)                       256)                                                              
+                                                                                                  
+ basenet.slice3.22 (Activation)  (None, None, None,   0          ['basenet.slice3.21[0][0]']      
+                                256)                                                              
+                                                                                                  
+ basenet.slice3.23 (MaxPooling2  (None, None, None,   0          ['basenet.slice3.22[0][0]']      
+ D)                             256)                                                              
+                                                                                                  
+ basenet.slice3.24 (Conv2D)     (None, None, None,   1180160     ['basenet.slice3.23[0][0]']      
+                                512)                                                              
+                                                                                                  
+ basenet.slice3.25 (BatchNormal  (None, None, None,   2048       ['basenet.slice3.24[0][0]']      
+ ization)                       512)                                                              
+                                                                                                  
+ basenet.slice3.26 (Activation)  (None, None, None,   0          ['basenet.slice3.25[0][0]']      
+                                512)                                                              
+                                                                                                  
+ basenet.slice3.27 (Conv2D)     (None, None, None,   2359808     ['basenet.slice3.26[0][0]']      
+                                512)                                                              
+                                                                                                  
+ basenet.slice3.28 (BatchNormal  (None, None, None,   2048       ['basenet.slice3.27[0][0]']      
+ ization)                       512)                                                              
+                                                                                                  
+ basenet.slice3.29 (Activation)  (None, None, None,   0          ['basenet.slice3.28[0][0]']      
+                                512)                                                              
+                                                                                                  
+ basenet.slice4.30 (Conv2D)     (None, None, None,   2359808     ['basenet.slice3.29[0][0]']      
+                                512)                                                              
+                                                                                                  
+ basenet.slice4.31 (BatchNormal  (None, None, None,   2048       ['basenet.slice4.30[0][0]']      
+ ization)                       512)                                                              
+                                                                                                  
+ basenet.slice4.32 (Activation)  (None, None, None,   0          ['basenet.slice4.31[0][0]']      
+                                512)                                                              
+                                                                                                  
+ basenet.slice4.33 (MaxPooling2  (None, None, None,   0          ['basenet.slice4.32[0][0]']      
+ D)                             512)                                                              
+                                                                                                  
+ basenet.slice4.34 (Conv2D)     (None, None, None,   2359808     ['basenet.slice4.33[0][0]']      
+                                512)                                                              
+                                                                                                  
+ basenet.slice4.35 (BatchNormal  (None, None, None,   2048       ['basenet.slice4.34[0][0]']      
+ ization)                       512)                                                              
+                                                                                                  
+ basenet.slice4.36 (Activation)  (None, None, None,   0          ['basenet.slice4.35[0][0]']      
+                                512)                                                              
+                                                                                                  
+ basenet.slice4.37 (Conv2D)     (None, None, None,   2359808     ['basenet.slice4.36[0][0]']      
+                                512)                                                              
+                                                                                                  
+ basenet.slice4.38 (BatchNormal  (None, None, None,   2048       ['basenet.slice4.37[0][0]']      
+ ization)                       512)                                                              
+                                                                                                  
+ basenet.slice5.0 (MaxPooling2D  (None, None, None,   0          ['basenet.slice4.38[0][0]']      
+ )                              512)                                                              
+                                                                                                  
+ basenet.slice5.1 (Conv2D)      (None, None, None,   4719616     ['basenet.slice5.0[0][0]']       
+                                1024)                                                             
+                                                                                                  
+ basenet.slice5.2 (Conv2D)      (None, None, None,   1049600     ['basenet.slice5.1[0][0]']       
+                                1024)                                                             
+                                                                                                  
+ concatenate (Concatenate)      (None, None, None,   0           ['basenet.slice5.2[0][0]',       
+                                1536)                             'basenet.slice4.38[0][0]']      
+                                                                                                  
+ upconv1.conv.0 (Conv2D)        (None, None, None,   786944      ['concatenate[0][0]']            
+                                512)                                                              
+                                                                                                  
+ upconv1.conv.1 (BatchNormaliza  (None, None, None,   2048       ['upconv1.conv.0[0][0]']         
+ tion)                          512)                                                              
+                                                                                                  
+ upconv1.conv.2 (Activation)    (None, None, None,   0           ['upconv1.conv.1[0][0]']         
+                                512)                                                              
+                                                                                                  
+ upconv1.conv.3 (Conv2D)        (None, None, None,   1179904     ['upconv1.conv.2[0][0]']         
+                                256)                                                              
+                                                                                                  
+ upconv1.conv.4 (BatchNormaliza  (None, None, None,   1024       ['upconv1.conv.3[0][0]']         
+ tion)                          256)                                                              
+                                                                                                  
+ upconv1.conv.5 (Activation)    (None, None, None,   0           ['upconv1.conv.4[0][0]']         
+                                256)                                                              
+                                                                                                  
+ upsample_like (UpsampleLike)   (None, None, None,   0           ['upconv1.conv.5[0][0]',         
+                                256)                              'basenet.slice3.29[0][0]']      
+                                                                                                  
+ concatenate_1 (Concatenate)    (None, None, None,   0           ['upsample_like[0][0]',          
+                                768)                              'basenet.slice3.29[0][0]']      
+                                                                                                  
+ upconv2.conv.0 (Conv2D)        (None, None, None,   196864      ['concatenate_1[0][0]']          
+                                256)                                                              
+                                                                                                  
+ upconv2.conv.1 (BatchNormaliza  (None, None, None,   1024       ['upconv2.conv.0[0][0]']         
+ tion)                          256)                                                              
+                                                                                                  
+ upconv2.conv.2 (Activation)    (None, None, None,   0           ['upconv2.conv.1[0][0]']         
+                                256)                                                              
+                                                                                                  
+ upconv2.conv.3 (Conv2D)        (None, None, None,   295040      ['upconv2.conv.2[0][0]']         
+                                128)                                                              
+                                                                                                  
+ upconv2.conv.4 (BatchNormaliza  (None, None, None,   512        ['upconv2.conv.3[0][0]']         
+ tion)                          128)                                                              
+                                                                                                  
+ upconv2.conv.5 (Activation)    (None, None, None,   0           ['upconv2.conv.4[0][0]']         
+                                128)                                                              
+                                                                                                  
+ upsample_like_1 (UpsampleLike)  (None, None, None,   0          ['upconv2.conv.5[0][0]',         
+                                128)                              'basenet.slice2.19[0][0]']      
+                                                                                                  
+ concatenate_2 (Concatenate)    (None, None, None,   0           ['upsample_like_1[0][0]',        
+                                384)                              'basenet.slice2.19[0][0]']      
+                                                                                                  
+ upconv3.conv.0 (Conv2D)        (None, None, None,   49280       ['concatenate_2[0][0]']          
+                                128)                                                              
+                                                                                                  
+ upconv3.conv.1 (BatchNormaliza  (None, None, None,   512        ['upconv3.conv.0[0][0]']         
+ tion)                          128)                                                              
+                                                                                                  
+ upconv3.conv.2 (Activation)    (None, None, None,   0           ['upconv3.conv.1[0][0]']         
+                                128)                                                              
+                                                                                                  
+ upconv3.conv.3 (Conv2D)        (None, None, None,   73792       ['upconv3.conv.2[0][0]']         
+                                64)                                                               
+                                                                                                  
+ upconv3.conv.4 (BatchNormaliza  (None, None, None,   256        ['upconv3.conv.3[0][0]']         
+ tion)                          64)                                                               
+                                                                                                  
+ upconv3.conv.5 (Activation)    (None, None, None,   0           ['upconv3.conv.4[0][0]']         
+                                64)                                                               
+                                                                                                  
+ upsample_like_2 (UpsampleLike)  (None, None, None,   0          ['upconv3.conv.5[0][0]',         
+                                64)                               'basenet.slice1.12[0][0]']      
+                                                                                                  
+ concatenate_3 (Concatenate)    (None, None, None,   0           ['upsample_like_2[0][0]',        
+                                192)                              'basenet.slice1.12[0][0]']      
+                                                                                                  
+ upconv4.conv.0 (Conv2D)        (None, None, None,   12352       ['concatenate_3[0][0]']          
+                                64)                                                               
+                                                                                                  
+ upconv4.conv.1 (BatchNormaliza  (None, None, None,   256        ['upconv4.conv.0[0][0]']         
+ tion)                          64)                                                               
+                                                                                                  
+ upconv4.conv.2 (Activation)    (None, None, None,   0           ['upconv4.conv.1[0][0]']         
+                                64)                                                               
+                                                                                                  
+ upconv4.conv.3 (Conv2D)        (None, None, None,   18464       ['upconv4.conv.2[0][0]']         
+                                32)                                                               
+                                                                                                  
+ upconv4.conv.4 (BatchNormaliza  (None, None, None,   128        ['upconv4.conv.3[0][0]']         
+ tion)                          32)                                                               
+                                                                                                  
+ upconv4.conv.5 (Activation)    (None, None, None,   0           ['upconv4.conv.4[0][0]']         
+                                32)                                                               
+                                                                                                  
+ conv_cls.0 (Conv2D)            (None, None, None,   9248        ['upconv4.conv.5[0][0]']         
+                                32)                                                               
+                                                                                                  
+ conv_cls.1 (Activation)        (None, None, None,   0           ['conv_cls.0[0][0]']             
+                                32)                                                               
+                                                                                                  
+ conv_cls.2 (Conv2D)            (None, None, None,   9248        ['conv_cls.1[0][0]']             
+                                32)                                                               
+                                                                                                  
+ conv_cls.3 (Activation)        (None, None, None,   0           ['conv_cls.2[0][0]']             
+                                32)                                                               
+                                                                                                  
+ conv_cls.4 (Conv2D)            (None, None, None,   4624        ['conv_cls.3[0][0]']             
+                                16)                                                               
+                                                                                                  
+ conv_cls.5 (Activation)        (None, None, None,   0           ['conv_cls.4[0][0]']             
+                                16)                                                               
+                                                                                                  
+ conv_cls.6 (Conv2D)            (None, None, None,   272         ['conv_cls.5[0][0]']             
+                                16)                                                               
+                                                                                                  
+ conv_cls.7 (Activation)        (None, None, None,   0           ['conv_cls.6[0][0]']             
+                                16)                                                               
+                                                                                                  
+ conv_cls.8 (Conv2D)            (None, None, None,   34          ['conv_cls.7[0][0]']             
+                                2)                                                                
+                                                                                                  
+==================================================================================================
+Total params: 20,780,770
+Trainable params: 20,770,466
+Non-trainable params: 10,304
+__________________________________________________________________________________________________
+Model: "model_1"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ input_1 (InputLayer)           [(None, None, None,  0           []                               
+                                 3)]                                                              
+                                                                                                  
+ basenet.slice1.0 (Conv2D)      (None, None, None,   1792        ['input_1[0][0]']                
+                                64)                                                               
+                                                                                                  
+ basenet.slice1.1 (BatchNormali  (None, None, None,   256        ['basenet.slice1.0[0][0]']       
+ zation)                        64)                                                               
+                                                                                                  
+ basenet.slice1.2 (Activation)  (None, None, None,   0           ['basenet.slice1.1[0][0]']       
+                                64)                                                               
+                                                                                                  
+ basenet.slice1.3 (Conv2D)      (None, None, None,   36928       ['basenet.slice1.2[0][0]']       
+                                64)                                                               
+                                                                                                  
+ basenet.slice1.4 (BatchNormali  (None, None, None,   256        ['basenet.slice1.3[0][0]']       
+ zation)                        64)                                                               
+                                                                                                  
+ basenet.slice1.5 (Activation)  (None, None, None,   0           ['basenet.slice1.4[0][0]']       
+                                64)                                                               
+                                                                                                  
+ basenet.slice1.6 (MaxPooling2D  (None, None, None,   0          ['basenet.slice1.5[0][0]']       
+ )                              64)                                                               
+                                                                                                  
+ basenet.slice1.7 (Conv2D)      (None, None, None,   73856       ['basenet.slice1.6[0][0]']       
+                                128)                                                              
+                                                                                                  
+ basenet.slice1.8 (BatchNormali  (None, None, None,   512        ['basenet.slice1.7[0][0]']       
+ zation)                        128)                                                              
+                                                                                                  
+ basenet.slice1.9 (Activation)  (None, None, None,   0           ['basenet.slice1.8[0][0]']       
+                                128)                                                              
+                                                                                                  
+ basenet.slice1.10 (Conv2D)     (None, None, None,   147584      ['basenet.slice1.9[0][0]']       
+                                128)                                                              
+                                                                                                  
+ basenet.slice1.11 (BatchNormal  (None, None, None,   512        ['basenet.slice1.10[0][0]']      
+ ization)                       128)                                                              
+                                                                                                  
+ basenet.slice1.12 (Activation)  (None, None, None,   0          ['basenet.slice1.11[0][0]']      
+                                128)                                                              
+                                                                                                  
+ basenet.slice1.13 (MaxPooling2  (None, None, None,   0          ['basenet.slice1.12[0][0]']      
+ D)                             128)                                                              
+                                                                                                  
+ basenet.slice2.14 (Conv2D)     (None, None, None,   295168      ['basenet.slice1.13[0][0]']      
+                                256)                                                              
+                                                                                                  
+ basenet.slice2.15 (BatchNormal  (None, None, None,   1024       ['basenet.slice2.14[0][0]']      
+ ization)                       256)                                                              
+                                                                                                  
+ basenet.slice2.16 (Activation)  (None, None, None,   0          ['basenet.slice2.15[0][0]']      
+                                256)                                                              
+                                                                                                  
+ basenet.slice2.17 (Conv2D)     (None, None, None,   590080      ['basenet.slice2.16[0][0]']      
+                                256)                                                              
+                                                                                                  
+ basenet.slice2.18 (BatchNormal  (None, None, None,   1024       ['basenet.slice2.17[0][0]']      
+ ization)                       256)                                                              
+                                                                                                  
+ basenet.slice2.19 (Activation)  (None, None, None,   0          ['basenet.slice2.18[0][0]']      
+                                256)                                                              
+                                                                                                  
+ basenet.slice3.20 (Conv2D)     (None, None, None,   590080      ['basenet.slice2.19[0][0]']      
+                                256)                                                              
+                                                                                                  
+ basenet.slice3.21 (BatchNormal  (None, None, None,   1024       ['basenet.slice3.20[0][0]']      
+ ization)                       256)                                                              
+                                                                                                  
+ basenet.slice3.22 (Activation)  (None, None, None,   0          ['basenet.slice3.21[0][0]']      
+                                256)                                                              
+                                                                                                  
+ basenet.slice3.23 (MaxPooling2  (None, None, None,   0          ['basenet.slice3.22[0][0]']      
+ D)                             256)                                                              
+                                                                                                  
+ basenet.slice3.24 (Conv2D)     (None, None, None,   1180160     ['basenet.slice3.23[0][0]']      
+                                512)                                                              
+                                                                                                  
+ basenet.slice3.25 (BatchNormal  (None, None, None,   2048       ['basenet.slice3.24[0][0]']      
+ ization)                       512)                                                              
+                                                                                                  
+ basenet.slice3.26 (Activation)  (None, None, None,   0          ['basenet.slice3.25[0][0]']      
+                                512)                                                              
+                                                                                                  
+ basenet.slice3.27 (Conv2D)     (None, None, None,   2359808     ['basenet.slice3.26[0][0]']      
+                                512)                                                              
+                                                                                                  
+ basenet.slice3.28 (BatchNormal  (None, None, None,   2048       ['basenet.slice3.27[0][0]']      
+ ization)                       512)                                                              
+                                                                                                  
+ basenet.slice3.29 (Activation)  (None, None, None,   0          ['basenet.slice3.28[0][0]']      
+                                512)                                                              
+                                                                                                  
+ basenet.slice4.30 (Conv2D)     (None, None, None,   2359808     ['basenet.slice3.29[0][0]']      
+                                512)                                                              
+                                                                                                  
+ basenet.slice4.31 (BatchNormal  (None, None, None,   2048       ['basenet.slice4.30[0][0]']      
+ ization)                       512)                                                              
+                                                                                                  
+ basenet.slice4.32 (Activation)  (None, None, None,   0          ['basenet.slice4.31[0][0]']      
+                                512)                                                              
+                                                                                                  
+ basenet.slice4.33 (MaxPooling2  (None, None, None,   0          ['basenet.slice4.32[0][0]']      
+ D)                             512)                                                              
+                                                                                                  
+ basenet.slice4.34 (Conv2D)     (None, None, None,   2359808     ['basenet.slice4.33[0][0]']      
+                                512)                                                              
+                                                                                                  
+ basenet.slice4.35 (BatchNormal  (None, None, None,   2048       ['basenet.slice4.34[0][0]']      
+ ization)                       512)                                                              
+                                                                                                  
+ basenet.slice4.36 (Activation)  (None, None, None,   0          ['basenet.slice4.35[0][0]']      
+                                512)                                                              
+                                                                                                  
+ basenet.slice4.37 (Conv2D)     (None, None, None,   2359808     ['basenet.slice4.36[0][0]']      
+                                512)                                                              
+                                                                                                  
+ basenet.slice4.38 (BatchNormal  (None, None, None,   2048       ['basenet.slice4.37[0][0]']      
+ ization)                       512)                                                              
+                                                                                                  
+ basenet.slice5.0 (MaxPooling2D  (None, None, None,   0          ['basenet.slice4.38[0][0]']      
+ )                              512)                                                              
+                                                                                                  
+ basenet.slice5.1 (Conv2D)      (None, None, None,   4719616     ['basenet.slice5.0[0][0]']       
+                                1024)                                                             
+                                                                                                  
+ basenet.slice5.2 (Conv2D)      (None, None, None,   1049600     ['basenet.slice5.1[0][0]']       
+                                1024)                                                             
+                                                                                                  
+ concatenate (Concatenate)      (None, None, None,   0           ['basenet.slice5.2[0][0]',       
+                                1536)                             'basenet.slice4.38[0][0]']      
+                                                                                                  
+ upconv1.conv.0 (Conv2D)        (None, None, None,   786944      ['concatenate[0][0]']            
+                                512)                                                              
+                                                                                                  
+ upconv1.conv.1 (BatchNormaliza  (None, None, None,   2048       ['upconv1.conv.0[0][0]']         
+ tion)                          512)                                                              
+                                                                                                  
+ upconv1.conv.2 (Activation)    (None, None, None,   0           ['upconv1.conv.1[0][0]']         
+                                512)                                                              
+                                                                                                  
+ upconv1.conv.3 (Conv2D)        (None, None, None,   1179904     ['upconv1.conv.2[0][0]']         
+                                256)                                                              
+                                                                                                  
+ upconv1.conv.4 (BatchNormaliza  (None, None, None,   1024       ['upconv1.conv.3[0][0]']         
+ tion)                          256)                                                              
+                                                                                                  
+ upconv1.conv.5 (Activation)    (None, None, None,   0           ['upconv1.conv.4[0][0]']         
+                                256)                                                              
+                                                                                                  
+ upsample_like (UpsampleLike)   (None, None, None,   0           ['upconv1.conv.5[0][0]',         
+                                256)                              'basenet.slice3.29[0][0]']      
+                                                                                                  
+ concatenate_1 (Concatenate)    (None, None, None,   0           ['upsample_like[0][0]',          
+                                768)                              'basenet.slice3.29[0][0]']      
+                                                                                                  
+ upconv2.conv.0 (Conv2D)        (None, None, None,   196864      ['concatenate_1[0][0]']          
+                                256)                                                              
+                                                                                                  
+ upconv2.conv.1 (BatchNormaliza  (None, None, None,   1024       ['upconv2.conv.0[0][0]']         
+ tion)                          256)                                                              
+                                                                                                  
+ upconv2.conv.2 (Activation)    (None, None, None,   0           ['upconv2.conv.1[0][0]']         
+                                256)                                                              
+                                                                                                  
+ upconv2.conv.3 (Conv2D)        (None, None, None,   295040      ['upconv2.conv.2[0][0]']         
+                                128)                                                              
+                                                                                                  
+ upconv2.conv.4 (BatchNormaliza  (None, None, None,   512        ['upconv2.conv.3[0][0]']         
+ tion)                          128)                                                              
+                                                                                                  
+ upconv2.conv.5 (Activation)    (None, None, None,   0           ['upconv2.conv.4[0][0]']         
+                                128)                                                              
+                                                                                                  
+ upsample_like_1 (UpsampleLike)  (None, None, None,   0          ['upconv2.conv.5[0][0]',         
+                                128)                              'basenet.slice2.19[0][0]']      
+                                                                                                  
+ concatenate_2 (Concatenate)    (None, None, None,   0           ['upsample_like_1[0][0]',        
+                                384)                              'basenet.slice2.19[0][0]']      
+                                                                                                  
+ upconv3.conv.0 (Conv2D)        (None, None, None,   49280       ['concatenate_2[0][0]']          
+                                128)                                                              
+                                                                                                  
+ upconv3.conv.1 (BatchNormaliza  (None, None, None,   512        ['upconv3.conv.0[0][0]']         
+ tion)                          128)                                                              
+                                                                                                  
+ upconv3.conv.2 (Activation)    (None, None, None,   0           ['upconv3.conv.1[0][0]']         
+                                128)                                                              
+                                                                                                  
+ upconv3.conv.3 (Conv2D)        (None, None, None,   73792       ['upconv3.conv.2[0][0]']         
+                                64)                                                               
+                                                                                                  
+ upconv3.conv.4 (BatchNormaliza  (None, None, None,   256        ['upconv3.conv.3[0][0]']         
+ tion)                          64)                                                               
+                                                                                                  
+ upconv3.conv.5 (Activation)    (None, None, None,   0           ['upconv3.conv.4[0][0]']         
+                                64)                                                               
+                                                                                                  
+ upsample_like_2 (UpsampleLike)  (None, None, None,   0          ['upconv3.conv.5[0][0]',         
+                                64)                               'basenet.slice1.12[0][0]']      
+                                                                                                  
+ concatenate_3 (Concatenate)    (None, None, None,   0           ['upsample_like_2[0][0]',        
+                                192)                              'basenet.slice1.12[0][0]']      
+                                                                                                  
+ upconv4.conv.0 (Conv2D)        (None, None, None,   12352       ['concatenate_3[0][0]']          
+                                64)                                                               
+                                                                                                  
+ upconv4.conv.1 (BatchNormaliza  (None, None, None,   256        ['upconv4.conv.0[0][0]']         
+ tion)                          64)                                                               
+                                                                                                  
+ upconv4.conv.2 (Activation)    (None, None, None,   0           ['upconv4.conv.1[0][0]']         
+                                64)                                                               
+                                                                                                  
+ upconv4.conv.3 (Conv2D)        (None, None, None,   18464       ['upconv4.conv.2[0][0]']         
+                                32)                                                               
+                                                                                                  
+ upconv4.conv.4 (BatchNormaliza  (None, None, None,   128        ['upconv4.conv.3[0][0]']         
+ tion)                          32)                                                               
+                                                                                                  
+ upconv4.conv.5 (Activation)    (None, None, None,   0           ['upconv4.conv.4[0][0]']         
+                                32)                                                               
+                                                                                                  
+ conv_cls.0 (Conv2D)            (None, None, None,   9248        ['upconv4.conv.5[0][0]']         
+                                32)                                                               
+                                                                                                  
+ conv_cls.1 (Activation)        (None, None, None,   0           ['conv_cls.0[0][0]']             
+                                32)                                                               
+                                                                                                  
+ conv_cls.2 (Conv2D)            (None, None, None,   9248        ['conv_cls.1[0][0]']             
+                                32)                                                               
+                                                                                                  
+ conv_cls.3 (Activation)        (None, None, None,   0           ['conv_cls.2[0][0]']             
+                                32)                                                               
+                                                                                                  
+ conv_cls.4 (Conv2D)            (None, None, None,   4624        ['conv_cls.3[0][0]']             
+                                16)                                                               
+                                                                                                  
+ conv_cls.5 (Activation)        (None, None, None,   0           ['conv_cls.4[0][0]']             
+                                16)                                                               
+                                                                                                  
+ conv_cls.6 (Conv2D)            (None, None, None,   272         ['conv_cls.5[0][0]']             
+                                16)                                                               
+                                                                                                  
+ conv_cls.7 (Activation)        (None, None, None,   0           ['conv_cls.6[0][0]']             
+                                16)                                                               
+                                                                                                  
+ conv_cls.8 (Conv2D)            (None, None, None,   34          ['conv_cls.7[0][0]']             
+                                2)                                                                
+                                                                                                  
+==================================================================================================
+Total params: 20,780,770
+Trainable params: 20,770,466
+Non-trainable params: 10,304
+__________________________________________________________________________________________________
