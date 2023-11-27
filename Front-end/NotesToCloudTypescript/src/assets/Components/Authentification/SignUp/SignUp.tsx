@@ -14,7 +14,11 @@ export default function SignUpPage() {
     firstName: "Test",
     lastName: "Son of Test",
     UUID: uuidv4(),
-    
+    email: "test@yahoo.fr",
+    addNum: "123",
+    addName: "Test Street",
+    addZIP: "T2E1S5",
+    phoneNum: "111-111-1111",
   });
   //Constante navigate qui nous permet de passer d'une page à une autre.
   var navigate = useNavigate();
